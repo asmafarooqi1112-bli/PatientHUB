@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: #f5f5f5;
+    border: 6px solid red;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+.logo span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.sidebar-divider {
+    width: 100%;
+    height: 1px;
+    margin-top: 18px;
+    margin-bottom: 7px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        #cfcfcf,
+        transparent
+    );
+}
+
+.sidebar-menu {
+    margin-top: 25px;
+    overflow-y: auto;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: calc(100% - 6px);
+    padding: 8px;
+    margin-bottom: 8px;
+    text-decoration: none;
+    color: #999;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+
+.menu-item i {
+    width: 32px;
+    height: 32px;
+    padding: 8px;
+    background-color: white;
+    color: #999;
+    border-radius: 7px;
+    font-size: 16px;
+    text-align: center;
+}
+
+
+.menu-item.active i {
+    background-color: #9c1e6a;
+    color: white;
+}
+
+.menu-item:hover {
+    background-color: white;
+    color: black;
+}
+
+.help-button {
+    width: 100%;
+    height: 55px;
+    margin-top: auto;
+    margin-bottom: 0;
+    background-color: #9c1e6a;
+    color: white;
+    border: none;
+    border-radius: 12px 12px 0 0;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10px;
+}
+
+.help-button span {
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    color: #9c1e6a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
+
+.sidebar-resizer {
+    position: fixed;
+    top: 0;
+    left: 200px;
+    width: 12px;
+    height: 100vh;
+    cursor: ew-resize;
+    z-index: 9999;
+}
+
+.sidebar.closed .sidebar-resizer {
+    left: 0;
+}
+
+.sidebar.closed .logo,
+.sidebar.closed .sidebar-menu,
+.sidebar.closed .help-button {
+    display: none;
+}
+
+.sidebar.closed .sidebar-resizer {
+    right: 0;
+    width: 8px;
+}
+
+.sidebar.hidden {
+    transform: translateX(-100%);
+}
