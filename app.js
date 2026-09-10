@@ -101,3 +101,14 @@ if (logout) {
         window.location.href = "index.html";
     });
 }
+
+
+//Main Dashboard
+
+const moreDetailsButtons = document.querySelectorAll(".more-details");
+
+moreDetailsButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+        window.location.href = "index.html";
+    });
+});
