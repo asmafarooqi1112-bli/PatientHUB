@@ -28,6 +28,10 @@ socialButtons.forEach(function (button) {
     });
 });
 
+
+
+//sidebar
+
 const sidebar = document.querySelector(".sidebar");
 const resizer = document.querySelector(".sidebar-resizer");
 const menuItems = document.querySelectorAll(".menu-item");
@@ -84,5 +88,16 @@ if (sidebar && resizer) {
     document.addEventListener("mouseup", function () {
         isResizing = false;
         document.body.style.userSelect = "auto";
+    });
+}
+
+
+//Navbar
+
+const logout = document.querySelector(".logout");
+
+if (logout) {
+    logout.addEventListener("click", function () {
+        window.location.href = "index.html";
     });
 }
