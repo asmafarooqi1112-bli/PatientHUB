@@ -37,7 +37,7 @@ The purpose of PatientHUB is to create a modern healthcare platform interface wh
 
 ## Author
 
-Asma Farooqy
+Asma FAROOQI
 
 ## Project Status
 
