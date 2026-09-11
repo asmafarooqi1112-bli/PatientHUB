@@ -450,3 +450,139 @@ body {
 .footer-links a:hover {
     color: #4169e1;
 }
+
+/* =========================
+   Responsive Dashboard
+   ========================= */
+
+@media (max-width: 768px) {
+
+    .Navbar {
+        width: calc(100% - 200px);
+        margin-left: 200px;
+        padding: 10px 15px;
+    }
+
+    .navbar-right {
+        gap: 10px;
+        min-width: 0;
+    }
+
+    .search-box {
+        width: 120px;
+    }
+
+    .main-dashboard {
+        margin-left: 200px;
+        margin-top: 72px;
+        padding: 15px;
+    }
+
+    .dashboard-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .dashboard-card {
+        width: 100%;
+    }
+
+    .dashboard-footer {
+        margin-left: 200px;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .Navbar {
+        width: calc(100% - 200px);
+        margin-left: 200px;
+        height: 90px;
+        padding: 8px;
+        overflow: hidden;
+    }
+
+    .navbar-title {
+        min-width: 60px;
+        flex-shrink: 1;
+    }
+
+    .navbar-title p {
+        font-size: 9px;
+    }
+
+    .navbar-title h1 {
+        font-size: 14px;
+    }
+
+    .navbar-menu-icon {
+        margin-left: 5px;
+        font-size: 15px;
+        flex-shrink: 0;
+    }
+
+    .navbar-right {
+        gap: 5px;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .search-box {
+        width: 75px;
+        min-width: 0;
+        height: 30px;
+    }
+
+    .search-box input {
+        font-size: 9px;
+    }
+
+    .logout span {
+        display: none;
+    }
+
+    .logout {
+        flex-shrink: 0;
+    }
+
+    .navbar-icon {
+        font-size: 12px;
+        flex-shrink: 0;
+    }
+
+    .main-dashboard {
+        margin-left: 200px;
+        margin-top: 72px;
+        padding: 12px;
+    }
+
+    .main-dashboard h2 {
+        font-size: 18px;
+    }
+
+    .promotion-content {
+        flex-direction: column;
+    }
+
+    .chart-side {
+        width: 100%;
+    }
+
+    .promotion-list {
+        width: 100%;
+    }
+
+    .dashboard-footer {
+        margin-left: 200px;
+        padding: 12px;
+    }
+}

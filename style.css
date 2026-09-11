@@ -201,3 +201,45 @@ input[type="password"] {
 
     margin: 0 8px;
 }
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 0;
+    }
+
+    .hero {
+        height: 40vh;
+        padding: 30px 15px;
+        border-radius: 0;
+    }
+
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 13px;
+    }
+
+    .main-content {
+        padding: 0 15px;
+    }
+
+    .login-card {
+        width: 100%;
+        max-width: 350px;
+        margin: -80px auto 10px;
+        padding: 20px;
+    }
+
+    .footer {
+        padding: 10px;
+    }
+
+    .footer a {
+        display: inline-block;
+        margin: 5px;
+    }
+
+}
