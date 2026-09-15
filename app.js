@@ -39,7 +39,7 @@ const sidebarToggle = document.querySelector("#sidebarToggle");
 
 menuItems.forEach(function (item) {
 item.addEventListener("click", function (event) {
-event.preventDefault();
+
 
     menuItems.forEach(function (item) {
         item.classList.remove("active");
