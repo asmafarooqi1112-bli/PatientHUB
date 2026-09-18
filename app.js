@@ -83,3 +83,66 @@ button.addEventListener("click", function () {
 window.location.href = "index.html";
 });
 });
+
+
+const viewButtons = document.querySelectorAll(".view-button");
+
+viewButtons.forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+        viewButtons.forEach(function (button) {
+
+            button.classList.remove("active");
+
+        });
+
+        button.classList.add("active");
+
+    });
+
+});
+
+
+const mapButton = document.getElementById("Mapbutton");
+const listButton = document.getElementById("Listbutton");
+
+const mapContent = document.getElementById("MapContent");
+
+const clinicCard1 = document.getElementById("ClinicCard1");
+const clinicCard2 = document.getElementById("ClinicCard2");
+
+
+mapContent.style.display = "block";
+
+clinicCard1.style.display = "none";
+clinicCard2.style.display = "none";
+
+mapButton.classList.add("active");
+listButton.classList.remove("active");
+
+
+mapButton.addEventListener("click", function () {
+
+    mapContent.style.display = "block";
+
+    clinicCard1.style.display = "none";
+    clinicCard2.style.display = "none";
+
+    mapButton.classList.add("active");
+    listButton.classList.remove("active");
+
+});
+
+
+listButton.addEventListener("click", function () {
+
+    mapContent.style.display = "none";
+
+    clinicCard1.style.display = "flex";
+    clinicCard2.style.display = "flex";
+
+    listButton.classList.add("active");
+    mapButton.classList.remove("active");
+
+});
