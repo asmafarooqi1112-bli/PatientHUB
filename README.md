@@ -1,44 +1,54 @@
 # PatientHUB
 
-PatientHUB is a healthcare web project designed to provide users with a simple and user-friendly interface for accessing different healthcare services.
+PatientHUB is a healthcare service web application designed to provide users with easy access to different healthcare services through a simple and user-friendly interface.
 
-## Features
+The project was originally developed using HTML, CSS, and JavaScript. In Week 3, PatientHUB was converted to React while preserving the existing visual design, content, page structure, and functionality.
 
-- User login page
-- Social login buttons
-- PatientHUB dashboard
-- Sidebar navigation
-- Dashboard navigation bar
-- Healthcare promotion cards
-- Pharmacy promotion section
-- Smart Market usage section
-- Health Index section
-- Responsive design for different screen sizes
+## Technologies
 
-## Technologies Used
-
+- React
+- Vite
+- React Router
 - HTML5
 - CSS3
 - JavaScript
 - Font Awesome
 
+## Pages
+
+- Login
+- Dashboard
+- Find Doctor
+- Find Clinic
+
+## Features
+
+- User login interface
+- Healthcare service dashboard
+- Find Doctor page
+- Find Clinic page
+- Sidebar navigation
+- Page navigation using React Router
+- Reusable React components for shared interface elements
+
 ## Project Structure
 
-- `index.html` — Login page
-- `style.css` — Login page styles
-- `dashboard.html` — Dashboard page
-- `dashboard.css` — Dashboard styles
-- `app.js` — JavaScript functionality
-- `images/` — Project images
+The project is organized using React components and pages. Shared interface elements, such as the Sidebar and Navbar, are implemented as reusable components, while the main pages are organized as separate React components.
 
-## Purpose
+## Installation
 
-The purpose of PatientHUB is to create a modern healthcare platform interface where users can easily access and explore different healthcare-related services.
+Install the project dependencies using:
 
-## Author
+npm install
 
-Asma FAROOQI
+## Run the Project
 
-## Project Status
+Start the development server using:
 
-This project was developed as part of a web development training project.
+npm run dev
+
+The project will then be available through the local development server provided by Vite.
+
+## Week 3
+
+During Week 3, PatientHUB was converted from its original HTML, CSS, and JavaScript implementation to React. The main goal of this conversion was to introduce a React-based project structure while keeping the original visual design, content, layout, and functionality unchanged.
