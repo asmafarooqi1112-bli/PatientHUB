@@ -1,7 +1,18 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import {
+  PieChart,
+  Pie,
+  Cell,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  ResponsiveContainer,
+} from 'recharts'
+
 import Sidebar from '../components/Sidebar.jsx'
 import Navbar from '../components/Navbar.jsx'
-import { useNavigate } from 'react-router-dom'
 
 function Dashboard() {
   const [closed, setClosed] = useState(false)
@@ -9,9 +20,77 @@ function Dashboard() {
 
   const moreDetails = () => navigate('/')
 
+  const clinicsData = [
+    { name: 'Klinik Lee Healthcare', value: 19, color: '#f28bb7' },
+    { name: 'Klinik Bandar Baru Nilai', value: 4, color: '#5b9bd5' },
+    { name: 'Klinik Mediviron Giant Nilai', value: 10, color: '#c46ab0' },
+    { name: 'KLINIK NILAI IMPIAN', value: 21, color: '#66b87a' },
+    { name: 'Klinik Mediviron', value: 2, color: '#8fd3e8' },
+  ]
+
+  const pharmaciesData = [
+    { name: 'ALPRO PHARMACY NILAI', value: 15, color: '#f28bb7' },
+    { name: 'ALPRO PHARMACY PEKAN NILAI', value: 12, color: '#5b9bd5' },
+    { name: 'OK PHARMACY', value: 5, color: '#c46ab0' },
+    { name: 'PHARMART PHARMACY NILAI', value: 9, color: '#66b87a' },
+    { name: 'Health Lane Family Pharmacy', value: 14, color: '#8fd3e8' },
+  ]
+
+  const smartMarketData = [
+    { name: 'Food Panda', value: 25, color: '#f28bb7' },
+    { name: 'Grab Food', value: 3, color: '#5b9bd5' },
+    { name: 'Zomato', value: 12, color: '#c46ab0' },
+    { name: 'Lazada', value: 7, color: '#66b87a' },
+    { name: 'Uber Eats', value: 10, color: '#8fd3e8' },
+  ]
+
+  const healthData = [
+    { month: 'Jan', value: 57 },
+    { month: 'Feb', value: 60 },
+    { month: 'Mar', value: 58 },
+    { month: 'Apr', value: 63 },
+    { month: 'May', value: 61 },
+    { month: 'Jun', value: 67 },
+    { month: 'Jul', value: 64 },
+    { month: 'Aug', value: 68 },
+    { month: 'Sep', value: 70 },
+  ]
+
+  const DonutChart = ({ data }) => (
+    <div className="donut-chart">
+      <ResponsiveContainer width="100%" height="100%">
+        <PieChart>
+          <Pie
+            data={data}
+            dataKey="value"
+            nameKey="name"
+            cx="50%"
+            cy="50%"
+            innerRadius="62%"
+            outerRadius="92%"
+            paddingAngle={2}
+            startAngle={90}
+            endAngle={-270}
+            stroke="none"
+          >
+            {data.map((item, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={item.color}
+              />
+            ))}
+          </Pie>
+        </PieChart>
+      </ResponsiveContainer>
+    </div>
+  )
+
   return (
     <>
-      <Sidebar closed={closed} active="Dashboard" />
+      <Sidebar
+        closed={closed}
+        active="Dashboard"
+      />
 
       <Navbar
         breadcrumb="Dashboard"
@@ -25,74 +104,192 @@ function Dashboard() {
         <h2>Welcome To PatientHUB!</h2>
 
         <div className="dashboard-row">
-          <section className="dashboard-card">
-            <span className="card-info">!</span>
-            <h3>Promotion by Clinics</h3>
-            <div className="promotion-content">
-              <div className="chart-side">
-                <img src="/images/promotion.jpeg" alt="Promotion by Clinics" />
-                <button className="more-details" onClick={moreDetails}>MORE DETAILS</button>
-              </div>
-              <div className="promotion-list">
-                <p><span className="color-dot pink"></span>Klinik Lee Healthcare<strong>19%</strong></p>
-                <p><span className="color-dot blue"></span>Klinik Bandar Baru Nilai<strong>4%</strong></p>
-                <p><span className="color-dot mixed"></span>Klinik Mediviron Giant Nilai<strong>10%</strong></p>
-                <p><span className="color-dot green"></span>KLINIK NILAI IMPIAN<strong>21%</strong></p>
-                <p><span className="color-dot light-blue"></span>Klinik Mediviron<strong>2%</strong></p>
-              </div>
-            </div>
-          </section>
 
           <section className="dashboard-card">
             <span className="card-info">!</span>
-            <h3>Promotion by Pharmacies</h3>
+
+            <h3>Promotion by Clinics</h3>
+
             <div className="promotion-content">
+
               <div className="chart-side">
-                <img src="/images/promotion by.jpeg" alt="Promotion by Pharmacies" />
-                <button className="more-details" onClick={moreDetails}>MORE DETAILS</button>
+                <DonutChart data={clinicsData} />
+
+                <button
+                  className="more-details"
+                  onClick={moreDetails}
+                >
+                  MORE DETAILS
+                </button>
               </div>
+
               <div className="promotion-list">
-                <p><span className="color-dot pink"></span>ALPRO PHARMACY NILAI<strong>15%</strong></p>
-                <p><span className="color-dot blue"></span>ALPRO PHARMACY PEKAN NILAI<strong>12%</strong></p>
-                <p><span className="color-dot mixed"></span>OK PHARMACY<strong>5%</strong></p>
-                <p><span className="color-dot green"></span>PHARMART PHARMACY NILAI<strong>9%</strong></p>
-                <p><span className="color-dot light-blue"></span>Health Lane Family Pharmacy<strong>14%</strong></p>
+                {clinicsData.map((item) => (
+                  <p key={item.name}>
+                    <span
+                      className="color-dot"
+                      style={{ backgroundColor: item.color }}
+                    ></span>
+
+                    <span className="promotion-name">
+                      {item.name}
+                    </span>
+
+                    <strong>{item.value}%</strong>
+                  </p>
+                ))}
               </div>
+
             </div>
           </section>
+
+
+          <section className="dashboard-card">
+            <span className="card-info">!</span>
+
+            <h3>Promotion by Pharmacies</h3>
+
+            <div className="promotion-content">
+
+              <div className="chart-side">
+                <DonutChart data={pharmaciesData} />
+
+                <button
+                  className="more-details"
+                  onClick={moreDetails}
+                >
+                  MORE DETAILS
+                </button>
+              </div>
+
+              <div className="promotion-list">
+                {pharmaciesData.map((item) => (
+                  <p key={item.name}>
+                    <span
+                      className="color-dot"
+                      style={{ backgroundColor: item.color }}
+                    ></span>
+
+                    <span className="promotion-name">
+                      {item.name}
+                    </span>
+
+                    <strong>{item.value}%</strong>
+                  </p>
+                ))}
+              </div>
+
+            </div>
+          </section>
+
         </div>
 
+
         <div className="dashboard-row">
+
           <section className="dashboard-card">
             <span className="card-info">!</span>
+
             <h3>Smart Market Usage by app</h3>
+
             <div className="promotion-content">
+
               <div className="chart-side">
-                <img src="/images/smart.jpeg" alt="Smart Market Usage" />
-                <button className="more-details" onClick={moreDetails}>MORE DETAILS</button>
+                <DonutChart data={smartMarketData} />
+
+                <button
+                  className="more-details"
+                  onClick={moreDetails}
+                >
+                  MORE DETAILS
+                </button>
               </div>
+
               <div className="promotion-list">
-                <p><span className="color-dot pink"></span>Food Panda<strong>25%</strong></p>
-                <p><span className="color-dot blue"></span>Grab Food<strong>3%</strong></p>
-                <p><span className="color-dot mixed"></span>Zomato<strong>12%</strong></p>
-                <p><span className="color-dot green"></span>Lazada<strong>7%</strong></p>
-                <p><span className="color-dot light-blue"></span>Uber Eats<strong>10%</strong></p>
+                {smartMarketData.map((item) => (
+                  <p key={item.name}>
+                    <span
+                      className="color-dot"
+                      style={{ backgroundColor: item.color }}
+                    ></span>
+
+                    <span className="promotion-name">
+                      {item.name}
+                    </span>
+
+                    <strong>{item.value}%</strong>
+                  </p>
+                ))}
               </div>
+
             </div>
           </section>
+
 
           <section className="dashboard-card health-card">
             <span className="card-info">!</span>
+
             <h3>Health Index</h3>
-            <div className="health-image">
-              <img src="/images/health.jpeg" alt="Health Index" />
+
+            <div className="health-content">
+
+              <div className="health-title">
+                <span>Health Index</span>
+
+                <div className="health-value">
+                  <strong>70%</strong>
+                  <small>+3%</small>
+                </div>
+              </div>
+
+              <div className="health-chart">
+                <ResponsiveContainer
+                  width="100%"
+                  height="100%"
+                >
+                  <LineChart
+                    data={healthData}
+                    margin={{
+                      top: 10,
+                      right: 5,
+                      left: -30,
+                      bottom: 0,
+                    }}
+                  >
+                    <XAxis
+                      dataKey="month"
+                      hide
+                    />
+
+                    <YAxis
+                      domain={[50, 75]}
+                      hide
+                    />
+
+                    <Line
+                      type="monotone"
+                      dataKey="value"
+                      stroke="#4169e1"
+                      strokeWidth={2}
+                      dot={false}
+                      activeDot={false}
+                    />
+                  </LineChart>
+                </ResponsiveContainer>
+              </div>
+
             </div>
           </section>
+
         </div>
       </main>
 
+
       <footer className="dashboard-footer">
-        <p>2026, made with <span>♥</span> by PIHUB for a better web.</p>
+        <p>
+          2026, made with <span>♥</span> by PIHUB for a better web.
+        </p>
+
         <div className="footer-links">
           <strong>PatientHUB</strong>
           <a href="#">About Us</a>
